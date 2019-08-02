@@ -1,0 +1,15 @@
+
+<h1>Welcome, <%= @user.first_name %> </h1>
+<hr>
+<h2>Your Name:<%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
+<h2>Your ID: <%= @user.id %></h2>
+<h2>Your Email: <%= @user.email %></h2>
+<h2>Your Birthday: <%= @user.birthday %></h2>
+<hr>
+<a href="/edit/<%= @user.id %>">Edit</a> |
+<a href="/show"> Main page </a>
+<br><br>
+<form action="/logout" method="post" role="form">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <button type="submit">Logout</button>
+</form>

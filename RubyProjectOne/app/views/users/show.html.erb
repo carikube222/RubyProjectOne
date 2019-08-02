@@ -1,0 +1,29 @@
+<h1> You are logged in! </h1>
+<br><br><br>
+<div class='table-responsive'>
+    <table class='table'>
+        <tr>
+            <td>First Name </td>
+            <td>Last Name </td>
+            <td>Email </td>
+            <td>Birthday</td>
+            <td>Action</td>
+        </tr>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.first_name.capitalize %></td>
+            <td><%= user.last_name.capitalize %></td>
+            <td><%= user.email %></td>
+            <td><%= user.birthday %></td>
+            <td><a href="/info/<%= user.id %>">Show your info</a> |
+                <a href="/edit/<%= user.id %>">Edit</a>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+<br><br><br><br>
+<form action="/logout" method="post" role="form">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <button type="submit">Logout</button>
+</form>
